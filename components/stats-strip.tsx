@@ -8,6 +8,7 @@ const stats = [
   { number: '8', label: 'Guests', sub: 'max. capacity' },
   { number: '2', label: 'Acres', sub: 'private grounds' },
   { number: '1', label: 'Jetty', sub: 'private lake access' },
+  { number: '1', label: 'Chef', sub: 'private culinary team' },
   { number: '∞', label: 'Pool', sub: 'lake-facing, lit at night' },
 ]
 
@@ -28,7 +29,7 @@ export function StatsStrip() {
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="grid grid-cols-2 gap-px overflow-hidden rounded-sm bg-white/5 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="grid grid-cols-2 gap-px overflow-hidden rounded-sm bg-white/5 sm:grid-cols-3 lg:grid-cols-6">
           {stats.map((s, i) => (
             <motion.div
               key={s.label}
