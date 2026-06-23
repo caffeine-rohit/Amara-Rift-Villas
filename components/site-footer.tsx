@@ -1,144 +1,78 @@
 'use client'
 
-import { Camera, Send, Mail, ArrowRight } from 'lucide-react'
-
-const navCols = [
-  {
-    heading: 'Explore',
-    links: [
-      { label: 'Our Story', href: '#story' },
-      { label: 'Gallery', href: '#gallery' },
-      { label: 'Amenities', href: '#amenities' },
-      { label: 'Guest Reviews', href: '#reviews' },
-      { label: 'Location', href: '#location' },
-    ],
-  },
-  {
-    heading: 'Book',
-    links: [
-      { label: 'Check Availability', href: '#booking' },
-      { label: 'Pricing & Rates', href: '#booking' },
-      { label: 'WhatsApp Us', href: 'https://wa.me/254700123456' },
-      { label: 'Email Enquiry', href: 'mailto:hello@amararift.co' },
-    ],
-  },
-  {
-    heading: 'Legal',
-    links: [
-      { label: 'Privacy Policy', href: '#' },
-      { label: 'Terms & Conditions', href: '#' },
-      { label: 'Cancellation Policy', href: '#' },
-    ],
-  },
-]
+import Link from 'next/link'
 
 export function SiteFooter() {
   return (
-    <footer className="bg-[oklch(0.12_0.012_55)] text-background">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        {/* Top section */}
-        <div className="grid gap-12 border-b border-background/10 py-16 lg:grid-cols-[2fr_1fr_1fr_1fr]">
-          {/* Brand */}
-          <div>
-            <a href="#top" className="inline-block">
-              <p className="font-serif text-3xl tracking-tight text-white">
-                Amara Rift<span className="text-primary">.</span>
-              </p>
-            </a>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-background/50">
-              A four-bedroom lakeside villa on the southern shore of Lake
-              Naivasha, Kenya. Book direct. No commission. No compromise.
-            </p>
-
-            {/* Newsletter */}
-            <div className="mt-8">
-              <p className="mb-3 text-[11px] uppercase tracking-[0.3em] text-background/40">
-                Get Availability Updates
-              </p>
-              <form
-                onSubmit={(e) => e.preventDefault()}
-                className="flex overflow-hidden rounded-full border border-background/15 bg-background/5"
-              >
-                <input
-                  type="email"
-                  placeholder="your@email.com"
-                  className="flex-1 bg-transparent px-5 py-3 text-sm text-white placeholder-background/30 outline-none"
-                />
-                <button
-                  type="submit"
-                  aria-label="Subscribe"
-                  className="flex items-center gap-1 rounded-full bg-primary px-5 py-3 text-xs font-medium text-primary-foreground transition-all hover:bg-primary/90"
-                >
-                  <ArrowRight className="size-4" />
-                </button>
-              </form>
-            </div>
+    <footer id="contact" className="bg-[#0A0A0A] text-white pt-24 pb-12 px-6 md:px-12 relative z-10">
+      <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
+        
+        {/* Col 1 */}
+        <div className="flex flex-col gap-6">
+          <Link href="/" className="font-sc tracking-[0.4em] text-2xl text-[var(--gold)] inline-block w-max">
+            SVARGA
+          </Link>
+          <p className="font-sans text-[14px] text-white/60 leading-relaxed max-w-xs">
+            Where Bali Dreams Become Yours. Three private estates in Penestanan, Ubud.
+          </p>
+          <div className="flex gap-6 mt-2">
+            {['IG', 'FB', 'PT'].map((social) => (
+              <a key={social} href="#" className="font-sans text-[11px] uppercase tracking-widest text-white/40 hover:text-[var(--gold)] transition-colors">
+                {social}
+              </a>
+            ))}
           </div>
-
-          {/* Nav columns */}
-          {navCols.map((col) => (
-            <div key={col.heading}>
-              <p className="mb-5 text-[10px] uppercase tracking-[0.35em] text-background/35">
-                {col.heading}
-              </p>
-              <ul className="flex flex-col gap-3">
-                {col.links.map((l) => (
-                  <li key={l.label}>
-                    <a
-                      href={l.href}
-                      className="text-sm text-background/55 transition-colors hover:text-primary"
-                      {...(l.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                    >
-                      {l.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
         </div>
 
-        {/* Bottom bar */}
-        <div className="flex flex-col gap-5 py-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs text-background/30">
-            © {new Date().getFullYear()} Amara Rift Villas. All rights reserved.
-          </p>
+        {/* Col 2 */}
+        <div>
+          <h4 className="font-sc tracking-widest text-[var(--gold)] text-[12px] mb-8 uppercase">Explore</h4>
+          <ul className="flex flex-col gap-4">
+            {['About', 'Our Villas', 'Experiences', 'Gallery'].map((link) => (
+              <li key={link}>
+                <Link href={`#${link.toLowerCase().replace(' ', '-')}`} className="font-sans text-[14px] text-white/70 hover:text-white transition-colors">
+                  {link}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-          {/* Social icons */}
-          <div className="flex items-center gap-3">
-            <a
-              href="https://instagram.com/amarariftvillas"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="flex size-9 items-center justify-center rounded-full border border-background/15 text-background/50 transition-all hover:border-primary/40 hover:bg-primary/10 hover:text-primary"
-            >
-              <Camera className="size-4" />
-            </a>
-            <a
-              href="https://wa.me/254700123456"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="WhatsApp"
-              className="flex size-9 items-center justify-center rounded-full border border-background/15 text-background/50 transition-all hover:border-primary/40 hover:bg-primary/10 hover:text-primary"
-            >
-              <Send className="size-4" />
-            </a>
-            <a
-              href="mailto:hello@amararift.co"
-              aria-label="Email"
-              className="flex size-9 items-center justify-center rounded-full border border-background/15 text-background/50 transition-all hover:border-primary/40 hover:bg-primary/10 hover:text-primary"
-            >
-              <Mail className="size-4" />
-            </a>
-          </div>
+        {/* Col 3 */}
+        <div>
+          <h4 className="font-sc tracking-widest text-[var(--gold)] text-[12px] mb-8 uppercase">Stay</h4>
+          <ul className="flex flex-col gap-4">
+            {['Book a Villa', 'Availability', 'Special Offers'].map((link) => (
+              <li key={link}>
+                <Link href="#reserve" className="font-sans text-[14px] text-white/70 hover:text-white transition-colors">
+                  {link}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-          <p className="text-xs text-background/30">
-            Site by{' '}
-            <a href="#" className="text-background/50 transition-colors hover:text-primary">
-              Rohit Sharma
-            </a>
-          </p>
+        {/* Col 4 */}
+        <div>
+          <h4 className="font-sc tracking-widest text-[var(--gold)] text-[12px] mb-8 uppercase">Contact</h4>
+          <ul className="flex flex-col gap-4">
+            <li className="font-sans text-[14px] text-white/70">Jalan Penestanan Kelod</li>
+            <li className="font-sans text-[14px] text-white/70">Ubud, Bali 80571</li>
+            <li className="font-sans text-[14px] text-white/70 mt-4 hover:text-[var(--gold)] transition-colors cursor-pointer">hello@svargavillas.com</li>
+            <li className="font-sans text-[14px] text-white/70 hover:text-[var(--gold)] transition-colors cursor-pointer">+62 811 398 1234</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div className="max-w-[1400px] mx-auto border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-6 font-sans text-[11px] uppercase tracking-widest text-white/40">
+        <p>© 2026 Svarga Private Villas</p>
+        <div className="flex flex-wrap justify-center items-center gap-4 text-center md:text-left">
+          <p>Privacy Policy</p>
+          <span className="hidden md:inline">·</span>
+          <p>All rates in USD</p>
+          <span className="hidden md:inline">·</span>
+          <p>Indonesian owned & operated</p>
         </div>
       </div>
     </footer>

@@ -1,30 +1,30 @@
-import { SiteNav } from '@/components/site-nav'
-import { Hero } from '@/components/hero'
-import { StatsStrip } from '@/components/stats-strip'
-import { Story } from '@/components/story'
-import { PressStrip } from '@/components/press-strip'
-import { Gallery } from '@/components/gallery'
-import { Amenities } from '@/components/amenities'
-import { BookingEngine } from '@/components/booking-engine'
-import { Testimonials } from '@/components/testimonials'
-import { Location } from '@/components/location'
-import { FinalCta } from '@/components/final-cta'
+import { SiteHeader } from '@/components/site-header'
+import { Hero } from '@/components/sections/hero'
+import { Philosophy } from '@/components/sections/philosophy'
+import { VillasCollection } from '@/components/sections/villas-collection'
+import { ParallaxFeatures } from '@/components/sections/parallax-features'
+import { ImmersiveGallery } from '@/components/sections/immersive-gallery'
+import { Location } from '@/components/sections/location'
+import { Experiences } from '@/components/sections/experiences'
+import { Testimonials } from '@/components/sections/testimonials'
+import { Press } from '@/components/sections/press'
+import { ReservationInquiry } from '@/components/sections/reservation-inquiry'
 import { SiteFooter } from '@/components/site-footer'
 
 export default function Page() {
   return (
-    <main className="overflow-x-hidden">
-      <SiteNav />
+    <main className="relative w-full">
+      <SiteHeader />
       <Hero />
-      <StatsStrip />
-      <Story />
-      <PressStrip />
-      <Gallery />
-      <Amenities />
-      <BookingEngine />
-      <Testimonials />
+      <Philosophy />
+      <VillasCollection />
+      <ParallaxFeatures />
+      <ImmersiveGallery />
       <Location />
-      <FinalCta />
+      <Experiences />
+      <Testimonials />
+      <Press />
+      <ReservationInquiry />
       <SiteFooter />
     </main>
   )
