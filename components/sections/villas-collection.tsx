@@ -14,7 +14,8 @@ const VILLAS = [
     name: 'Villa Artha',
     description: '2 bedrooms, private infinity pool, rice field view',
     price: '$485',
-    image: '/images/villa-1.png'
+    image: '/images/villa-1.png',
+    video: '/videos/villa-pool.mp4'
   },
   {
     id: 'svarga',
@@ -91,15 +92,27 @@ export function VillasCollection() {
                 key={villa.id}
                 className="group relative w-full md:w-[40vw] h-[60vh] md:h-full overflow-hidden shrink-0"
               >
-                {/* Background Image */}
+                {/* Background Image/Video */}
                 <div className="absolute inset-0 transition-transform duration-1000 ease-[0.33,1,0.68,1] group-hover:scale-105">
-                  <Image
-                    src={villa.image}
-                    alt={villa.name}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 40vw"
-                  />
+                  {villa.video ? (
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="object-cover w-full h-full"
+                    >
+                      <source src={villa.video} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <Image
+                      src={villa.image}
+                      alt={villa.name}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 40vw"
+                    />
+                  )}
                 </div>
                 
                 {/* Hover Overlay */}

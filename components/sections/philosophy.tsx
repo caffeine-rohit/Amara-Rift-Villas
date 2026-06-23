@@ -68,13 +68,15 @@ export function Philosophy() {
             transition={{ duration: 1.2, ease: [0.77, 0, 0.18, 1] }}
             className="w-full h-full relative"
           >
-            <Image
-              src="/images/philosophy.png"
-              alt="Svarga Villa exterior"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="object-cover w-full h-full"
+            >
+              <source src="/videos/jungle-sunrise.mp4" type="video/mp4" />
+            </video>
           </motion.div>
         </div>
 
